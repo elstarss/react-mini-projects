@@ -22,4 +22,58 @@ $f-label: 0.8rem, 400;
 .email-clone {
     font-family: "Inter", normal;
     color: aqua;
+    // display: grid;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    border: #1b3d51 2px solid;
+    top: 0;
+    left: 0;
+    &__logo {
+        width: 40px;
+        height: 40px;
+    }
+    &__profile {
+        // justify-self: flex-end;
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+    }
+}
+
+.email-cards-container {
+    display: flex;
+    flex-direction: column;
+    width: 40vw;
+}
+.email-card {
+    display: grid;
+    grid-template-areas:
+        "img  sender date"
+        "img   head date "
+        "img  body date  ";
+    align-items: flex-start;
+    justify-content: flex-start;
+    &__sender {
+        font: $f-h4;
+        grid-area: sender;
+    }
+    &__date-sent {
+        font: $f-h4;
+        grid-area: date;
+    }
+    &__header {
+        grid-area: head;
+    }
+    &__body {
+        grid-area: body;
+    }
+    &__img {
+        grid-area: img;
+    }
 }
