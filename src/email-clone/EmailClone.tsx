@@ -4,6 +4,7 @@ import EmailCard from "./components/EmailCard";
 import Header from "./components/Header";
 import InboxTab from "./components/InboxTab";
 import CurrentEmail from "./components/CurrentEmail";
+import EmailCardsHeader from "./components/EmailCardsHeader";
 import { useState } from "react";
 
 export default function EmailClone() {
@@ -16,6 +17,7 @@ export default function EmailClone() {
             <EmailCard
                 sender={e.sender}
                 header={e.header}
+                intro={e.intro}
                 body={e.body}
                 dateSent={e.dateSent}
                 emailOpened={e.emailOpened}
@@ -23,7 +25,6 @@ export default function EmailClone() {
                 id={e.id}
                 key={e.id}
                 handleClick={openEmail}
-                isCurrent={e.isCurrent}
             ></EmailCard>
         );
     });
@@ -31,31 +32,26 @@ export default function EmailClone() {
     function openEmail(id: number) {
         setEmailData((prevData) =>
             prevData.map((email) => {
-                return email.id == id
-                    ? {
-                          ...email,
-                          emailOpened: true,
-                          isCurrent: true,
-                      }
-                    : {
-                          ...email,
-                          isCurrent: false,
-                      };
+                if (email.id == id) {
+                    setCurrentEmail(email);
+                    return { ...email, emailOpened: true };
+                } else {
+                    return email;
+                }
             })
         );
     }
 
-    function settingCurrent() {
-        let current = emailData.find((email) => email.isCurrent == true);
-        setCurrentEmail((prev) => current);
-    }
-
+    console.log(currentEmail.header);
     return (
         <div className="email-clone">
             <Header></Header>
             <div className="email-clone__body">
                 <InboxTab></InboxTab>
-                <div className="email-cards-container">{emailComponents}</div>
+                <div className="email-cards-container">
+                    <EmailCardsHeader />
+                    {emailComponents}
+                </div>
                 <CurrentEmail emailData={currentEmail}></CurrentEmail>
             </div>
         </div>

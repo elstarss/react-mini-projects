@@ -1,1 +1,17 @@
-@use "./home/index.scss";
+.nav {
+    background-color: rgb(72, 158, 158);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-large;
+    color: white;
+    // display: flex;
+    // justify-content: flex-start;
+
+    &__link {
+        color: white;
+        margin-left: 20px;
+    }
+}
+a:visited {
+    color: azure;
+}
+$pretty-teal: rgb(72, 158, 158);

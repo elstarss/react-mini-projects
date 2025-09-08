@@ -1,5 +1,12 @@
 .home-div {
     height: 100vw;
     width: 100%;
-    background-color: aqua;
+    background-color: rgb(168, 241, 241);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: monospace;
+    &__content {
+        margin-top: 20%;
+    }
 }

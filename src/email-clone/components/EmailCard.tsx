@@ -1,12 +1,12 @@
 interface emailProps {
     sender: string;
     header: string;
+    intro: string;
     body: string;
     dateSent: string;
     emailOpened: boolean;
     imgUrl: string;
     id: number;
-    isCurrent: boolean;
     handleClick: (id: any) => void;
 }
 export default function EmailCards(props: emailProps) {
@@ -34,7 +34,7 @@ export default function EmailCards(props: emailProps) {
                 src={props.imgUrl}
                 alt="react logo"
             />
-            <p className="email-card__body">{props.body}</p>
+            <p className="email-card__body">{props.intro}</p>
         </button>
     );
 }

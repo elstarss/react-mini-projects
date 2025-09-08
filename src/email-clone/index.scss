@@ -53,7 +53,7 @@ $f-label: 400 0.8rem "Inter";
 .header {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     width: 100%;
     border: #1b3d51 2px solid;
@@ -63,8 +63,8 @@ $f-label: 400 0.8rem "Inter";
         width: 40px;
         height: 40px;
     }
-    &__profile {
-        // justify-self: flex-end;
+    &__profile-img {
+        margin-left: 80%;
         width: 40px;
         height: 40px;
         border-radius: 30px;
@@ -85,8 +85,8 @@ $f-label: 400 0.8rem "Inter";
     align-items: flex-start;
     justify-content: flex-start;
     cursor: pointer;
-    height: 200px;
-
+    height: 180px;
+    padding: 6px;
     &__sender {
         font: $f-h4;
         grid-area: sender;
@@ -107,6 +107,7 @@ $f-label: 400 0.8rem "Inter";
     &__body {
         font: $f-p-small;
         grid-area: body;
+        margin: 0;
     }
     &__img {
         grid-area: img;
@@ -122,4 +123,25 @@ $f-label: 400 0.8rem "Inter";
 
 .current-email {
     width: 50%;
+    padding: 2vw;
+    &__header {
+        color: $p-teal;
+    }
+    &__sender {
+        color: $p-blue;
+    }
+    &__body {
+        color: $p-teal;
+    }
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &--btn {
+            background-color: transparent;
+            border: none;
+            width: 30px;
+            height: 30px;
+        }
+    }
 }
