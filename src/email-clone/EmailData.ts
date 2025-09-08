@@ -1,4 +1,4 @@
-export const EmailData = [
+export const EmailObject = [
     {
         sender: "Linda from SparkleClean",
         header: "Your Home Deserves Better",
@@ -9,6 +9,7 @@ export const EmailData = [
         importance: "medium",
         type: "personal",
         imgUrl: "../src/assets/react.svg",
+        id: 1,
     },
     {
         sender: "TechNova Updates",
@@ -20,6 +21,7 @@ export const EmailData = [
         importance: "high",
         type: "work",
         imgUrl: "../src/assets/react.svg",
+        id: 2,
     },
     {
         sender: "Greg from FitFuel",
@@ -31,6 +33,7 @@ export const EmailData = [
         importance: "medium",
         type: "personal",
         imgUrl: "../src/assets/react.svg",
+        id: 3,
     },
     {
         sender: "The Daily Bark",
@@ -42,6 +45,7 @@ export const EmailData = [
         importance: "low",
         type: "personal",
         imgUrl: "../src/assets/react.svg",
+        id: 4,
     },
     {
         sender: "Nina from ZenBank",
@@ -53,6 +57,7 @@ export const EmailData = [
         importance: "high",
         type: "work",
         imgUrl: "../src/assets/react.svg",
+        id: 5,
     },
     {
         sender: "PixelPop Games",
@@ -64,6 +69,7 @@ export const EmailData = [
         importance: "medium",
         type: "personal",
         imgUrl: "../src/assets/react.svg",
+        id: 6,
     },
     {
         sender: "Dr. Wellness",
@@ -75,6 +81,7 @@ export const EmailData = [
         importance: "low",
         type: "personal",
         imgUrl: "../src/assets/react.svg",
+        id: 7,
     },
     {
         sender: "BargainBlast",
@@ -86,6 +93,7 @@ export const EmailData = [
         importance: "medium",
         type: "personal",
         imgUrl: "../src/assets/react.svg",
+        id: 8,
     },
     {
         sender: "CodeCrafters Weekly",
@@ -97,6 +105,7 @@ export const EmailData = [
         importance: "high",
         type: "work",
         imgUrl: "../src/assets/react.svg",
+        id: 9,
     },
     {
         sender: "MysteryBox Monthly",
@@ -108,5 +117,6 @@ export const EmailData = [
         importance: "low",
         type: "personal",
         imgUrl: "../src/assets/react.svg",
+        id: 10,
     },
 ];

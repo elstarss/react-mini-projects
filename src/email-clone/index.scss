@@ -69,6 +69,12 @@ $f-label: 0.8rem, 400;
     }
     &__header {
         grid-area: head;
+        &--opened {
+            background-color: red;
+        }
+        &--unopened {
+            background-color: #57c5c5;
+        }
     }
     &__body {
         grid-area: body;

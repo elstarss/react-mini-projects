@@ -5,13 +5,15 @@ interface emailProps {
     dateSent: string;
     emailOpened: boolean;
     imgUrl: string;
+    id: number;
+    handleClick: (id: any) => void;
 }
 
 export default function EmailCards(props: emailProps) {
     let buttonClass = "";
     let headerClass = "";
 
-    if (props.emailOpened) {
+    if (props.emailOpened == true) {
         headerClass = "email-card__header--opened";
         buttonClass = "email-card email-opened";
     } else {
@@ -20,7 +22,10 @@ export default function EmailCards(props: emailProps) {
     }
 
     return (
-        <button className={buttonClass}>
+        <button
+            className={buttonClass}
+            onClick={() => props.handleClick(props.id)}
+        >
             <h4 className="email-card__sender">{props.sender}</h4>
             <h4 className="email-card__date-sent">{props.dateSent}</h4>
             <h3 className={headerClass}>{props.header}</h3>
