@@ -1,8 +1,22 @@
 export default function InboxTab() {
     return (
-        <div>
-            <button>Inbox</button>
-            <button>Trash</button>
+        <div className="inbox-tab">
+            <button className="inbox-tab__btn">
+                <img
+                    src="/assets/mailbox.png"
+                    alt="mailbox icon"
+                    className="inbox-tab__btn--img"
+                />
+                Inbox
+            </button>
+            <button className="inbox-tab__btn">
+                <img
+                    src="/assets/trash.png"
+                    alt="rubbish bin icon"
+                    className="inbox-tab__btn--img"
+                />
+                Trash
+            </button>
         </div>
     );
 }

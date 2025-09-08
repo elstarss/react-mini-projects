@@ -10,6 +10,7 @@ export const EmailObject = [
         type: "personal",
         imgUrl: "../src/assets/react.svg",
         id: 1,
+        isCurrent: false,
     },
     {
         sender: "TechNova Updates",
@@ -22,6 +23,7 @@ export const EmailObject = [
         type: "work",
         imgUrl: "../src/assets/react.svg",
         id: 2,
+        isCurrent: false,
     },
     {
         sender: "Greg from FitFuel",
@@ -34,6 +36,7 @@ export const EmailObject = [
         type: "personal",
         imgUrl: "../src/assets/react.svg",
         id: 3,
+        isCurrent: false,
     },
     {
         sender: "The Daily Bark",
@@ -46,6 +49,7 @@ export const EmailObject = [
         type: "personal",
         imgUrl: "../src/assets/react.svg",
         id: 4,
+        isCurrent: false,
     },
     {
         sender: "Nina from ZenBank",
@@ -58,6 +62,7 @@ export const EmailObject = [
         type: "work",
         imgUrl: "../src/assets/react.svg",
         id: 5,
+        isCurrent: false,
     },
     {
         sender: "PixelPop Games",
@@ -70,6 +75,7 @@ export const EmailObject = [
         type: "personal",
         imgUrl: "../src/assets/react.svg",
         id: 6,
+        isCurrent: false,
     },
     {
         sender: "Dr. Wellness",
@@ -82,6 +88,7 @@ export const EmailObject = [
         type: "personal",
         imgUrl: "../src/assets/react.svg",
         id: 7,
+        isCurrent: false,
     },
     {
         sender: "BargainBlast",
@@ -94,6 +101,7 @@ export const EmailObject = [
         type: "personal",
         imgUrl: "../src/assets/react.svg",
         id: 8,
+        isCurrent: false,
     },
     {
         sender: "CodeCrafters Weekly",
@@ -106,6 +114,7 @@ export const EmailObject = [
         type: "work",
         imgUrl: "../src/assets/react.svg",
         id: 9,
+        isCurrent: false,
     },
     {
         sender: "MysteryBox Monthly",
@@ -118,5 +127,6 @@ export const EmailObject = [
         type: "personal",
         imgUrl: "../src/assets/react.svg",
         id: 10,
+        isCurrent: false,
     },
 ];

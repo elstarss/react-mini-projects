@@ -6,9 +6,9 @@ interface emailProps {
     emailOpened: boolean;
     imgUrl: string;
     id: number;
+    isCurrent: boolean;
     handleClick: (id: any) => void;
 }
-
 export default function EmailCards(props: emailProps) {
     let buttonClass = "";
     let headerClass = "";

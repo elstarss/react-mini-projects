@@ -9,6 +9,7 @@ import { useState } from "react";
 export default function EmailClone() {
     // useState for marking an email as read
     const [emailData, setEmailData] = useState(EmailObject);
+    const [currentEmail, setCurrentEmail] = useState(emailData[0]);
 
     const emailComponents = emailData.map((e) => {
         return (
@@ -22,26 +23,41 @@ export default function EmailClone() {
                 id={e.id}
                 key={e.id}
                 handleClick={openEmail}
+                isCurrent={e.isCurrent}
             ></EmailCard>
         );
     });
 
     function openEmail(id: number) {
-        console.log(emailData);
         setEmailData((prevData) =>
             prevData.map((email) => {
-                return email.id == id ? { ...email, emailOpened: true } : email;
+                return email.id == id
+                    ? {
+                          ...email,
+                          emailOpened: true,
+                          isCurrent: true,
+                      }
+                    : {
+                          ...email,
+                          isCurrent: false,
+                      };
             })
         );
-        console.log(emailData);
+    }
+
+    function settingCurrent() {
+        let current = emailData.find((email) => email.isCurrent == true);
+        setCurrentEmail((prev) => current);
     }
 
     return (
         <div className="email-clone">
             <Header></Header>
-            <InboxTab></InboxTab>
-            <div className="email-cards-container">{emailComponents}</div>
-            <CurrentEmail></CurrentEmail>
+            <div className="email-clone__body">
+                <InboxTab></InboxTab>
+                <div className="email-cards-container">{emailComponents}</div>
+                <CurrentEmail emailData={currentEmail}></CurrentEmail>
+            </div>
         </div>
     );
 }
