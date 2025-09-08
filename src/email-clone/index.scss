@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+// variables
+// primary
+$p-blue: #57c5c5;
+$p-grey: #8c9cb1;
+$p-teal: #1b3d51;
+// secondary
+$s-inbox-inactive: #f5fcfc;
+$s-section-dividers: #e8f1f1;
+$s-inactive-tab: #bcc6cc;
+
+// FONTS
+$f-h1: 2rem, 700;
+$f-h2: 1.125rem, 500;
+$f-h3-bold: 1rem, 700;
+$f-h3: 1rem, 400;
+$f-h4: 0.8rem, 400;
+$f-p-large: 1rem, 400, 160%;
+$f-p-small: 0.8rem, 400, 160%;
+$f-label: 0.8rem, 400;
+
+.email-clone {
+    font-family: "Inter", normal;
+    color: aqua;
+}
