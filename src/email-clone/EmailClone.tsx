@@ -41,6 +41,8 @@ export default function EmailClone() {
             })
         );
     }
+    const [filter, setFilter] = useState(true);
+    function handleFilter(e: React.ChangeEvent) {}
 
     console.log(currentEmail.header);
     return (
@@ -49,7 +51,7 @@ export default function EmailClone() {
             <div className="email-clone__body">
                 <InboxTab></InboxTab>
                 <div className="email-cards-container">
-                    <EmailCardsHeader />
+                    <EmailCardsHeader handleFilter={handleFilter} />
                     {emailComponents}
                 </div>
                 <CurrentEmail emailData={currentEmail}></CurrentEmail>

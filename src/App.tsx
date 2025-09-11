@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router";
 import Home from "./home";
 import EmailClone from "./email-clone/EmailClone";
+import Phaser from "./phaser";
 import "./App.scss";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/project-1" element={<EmailClone />} />
+                <Route path="/project-2" element={<Phaser />} />
             </Routes>
         </BrowserRouter>
     );
