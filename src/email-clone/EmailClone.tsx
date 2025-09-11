@@ -12,7 +12,39 @@ export default function EmailClone() {
     const [emailData, setEmailData] = useState(EmailObject);
     const [currentEmail, setCurrentEmail] = useState(emailData[0]);
 
-    const emailComponents = emailData.map((e) => {
+    const [filter, setFilter] = useState({
+        importance: "all",
+        dateSent: "recent",
+        type: "all",
+    });
+
+    const filteredEmails = emailData.filter((email) => {
+        let importanceMatch =
+            filter.importance === "all" ||
+            email.importance === filter.importance;
+
+        let typeMatch = filter.type === "all" || email.type === filter.type;
+
+        return importanceMatch && typeMatch;
+    });
+
+    let compare = (a, b) => {
+        if (a.dateSent < b.dateSent) {
+            return -1;
+        }
+        if (a.dateSent > b.dateSent) {
+            return 1;
+        }
+        return 0;
+    };
+
+    if (filter.dateSent === "recent") {
+        filteredEmails.sort(compare);
+    } else if (filter.dateSent === "oldest") {
+        filteredEmails.sort(compare).reverse();
+    }
+
+    const emailComponents = filteredEmails.map((e) => {
         return (
             <EmailCard
                 sender={e.sender}
@@ -24,6 +56,7 @@ export default function EmailClone() {
                 imgUrl={e.imgUrl}
                 id={e.id}
                 key={e.id}
+                importance={e.importance}
                 handleClick={openEmail}
             ></EmailCard>
         );
@@ -41,17 +74,28 @@ export default function EmailClone() {
             })
         );
     }
-    const [filter, setFilter] = useState(true);
-    function handleFilter(e: React.ChangeEvent) {}
 
-    console.log(currentEmail.header);
+    function clickFilter(e: React.ChangeEvent<HTMLInputElement>) {
+        console.log("clicked " + e.currentTarget.name);
+        console.log("clicked " + e.currentTarget.value);
+
+        const category = e.currentTarget.name;
+        const f = e.currentTarget.value;
+        setFilter((prev) => {
+            return { ...prev, [category]: f };
+        });
+    }
+
     return (
         <div className="email-clone">
             <Header></Header>
             <div className="email-clone__body">
                 <InboxTab></InboxTab>
                 <div className="email-cards-container">
-                    <EmailCardsHeader handleFilter={handleFilter} />
+                    <EmailCardsHeader
+                        filterState={filter}
+                        handleChange={clickFilter}
+                    />
                     {emailComponents}
                 </div>
                 <CurrentEmail emailData={currentEmail}></CurrentEmail>

@@ -11,57 +11,85 @@ export default function EmailCardsHeader(props: any) {
             <button onClick={handleClick}>Filter by</button>
             {filter ? (
                 <div className="filter">
-                    <fieldset>
-                        <legend>Importance</legend>
-                        <label>
-                            <input
-                                type="radio"
-                                name="importance"
-                                value="high"
-                            />
-                            High
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name="importance"
-                                value="medium"
-                            />
-                            Medium
-                        </label>
-                        <label>
-                            <input type="radio" name="importance" value="low" />
-                            Low
-                        </label>
-                    </fieldset>
+                    <form action="">
+                        <fieldset>
+                            <legend>Importance</legend>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="importance"
+                                    value="high"
+                                    onChange={props.handleChange}
+                                />
+                                High
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="importance"
+                                    value="medium"
+                                    onChange={props.handleChange}
+                                />
+                                Medium
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="importance"
+                                    value="low"
+                                    onChange={props.handleChange}
+                                />
+                                Low
+                            </label>
+                        </fieldset>
 
-                    <fieldset>
-                        <legend>Date</legend>
-                        <label>
-                            <input
-                                type="radio"
-                                name="date"
-                                value="most-recent"
-                            />
-                            Most Recent
-                        </label>
-                        <label>
-                            <input type="radio" name="date" value="oldest" />
-                            Oldest
-                        </label>
-                    </fieldset>
+                        <fieldset>
+                            <legend>Date</legend>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="dateSent"
+                                    value="recent"
+                                    onChange={props.handleChange}
+                                />
+                                Most Recent
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="dateSent"
+                                    value="oldest"
+                                    onChange={props.handleChange}
+                                />
+                                Oldest
+                            </label>
+                        </fieldset>
 
-                    <fieldset>
-                        <legend>Type</legend>
+                        <fieldset>
+                            <legend>Type</legend>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="type"
+                                    value="personal"
+                                    onChange={props.handleChange}
+                                />
+                                Personal
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name="type"
+                                    value="work"
+                                    onChange={props.handleChange}
+                                />
+                                Work
+                            </label>
+                        </fieldset>
                         <label>
-                            <input type="radio" name="type" value="personal" />
-                            Personal
+                            <button>Clear all</button>
                         </label>
-                        <label>
-                            <input type="radio" name="type" value="work" />
-                            Work
-                        </label>
-                    </fieldset>
+                    </form>
                 </div>
             ) : null}
         </div>

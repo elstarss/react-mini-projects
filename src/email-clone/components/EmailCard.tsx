@@ -5,6 +5,7 @@ interface emailProps {
     body: string;
     dateSent: string;
     emailOpened: boolean;
+    importance: string;
     imgUrl: string;
     id: number;
     handleClick: (id: any) => void;
