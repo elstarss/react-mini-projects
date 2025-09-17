@@ -25,6 +25,11 @@ export class Preload extends Scene {
             "assets/game/tiles/tilemapJson.tmj"
         );
 
+        this.load.tilemapTiledJSON(
+            "tilemap2",
+            "assets/game/tiles/tilemapScene2.tmj"
+        );
+
         this.load.image("computer", "assets/game/computer.png");
 
         this.load.image("terrain-tileset", "assets/game/tiles/1_terrain.png");

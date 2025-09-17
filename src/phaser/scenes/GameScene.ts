@@ -12,7 +12,7 @@ export default class GameScene extends Phaser.Scene {
     player: Player | undefined;
     enemy: EnemySprite | undefined;
     computer: DataChip | undefined;
-    computerTwo: DataChip;
+    computerTwo: DataChip | undefined;
     constructor() {
         super("GameScene");
     }
@@ -53,7 +53,7 @@ export default class GameScene extends Phaser.Scene {
         this.computer.setScale(0.2);
 
         // scene moving computer
-        this.computerTwo = new DataChip(this, 600, 250, "computer");
+        this.computerTwo = new DataChip(this, 800, 250, "computer");
         this.computerTwo.setScale(0.3);
 
         // interactions
@@ -63,7 +63,10 @@ export default class GameScene extends Phaser.Scene {
             console.log("clicked");
         });
 
-        this.computerTwo.on("pointerdown", () => {
+        // this.computerTwo.on("pointerdown", () => {
+        //     this.scene.start("Scene2");
+        // });
+        this.physics.add.collider(this.player, this.computerTwo, () => {
             this.scene.start("Scene2");
         });
 
@@ -82,8 +85,12 @@ export default class GameScene extends Phaser.Scene {
     }
     update() {
         this.enemy?.update();
-        if (this.player != null) {
-            this.computer?.update(this.player);
+        if (
+            this.player != null &&
+            this.computerTwo != null &&
+            this.computer != null
+        ) {
+            this.computer.update(this.player);
             this.computerTwo.update(this.player);
             this.player.update();
         }

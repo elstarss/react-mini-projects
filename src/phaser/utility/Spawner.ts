@@ -16,7 +16,7 @@ export class Spawner {
     }
 
     spawnEntities(): SpawnerResult {
-        const objects = this.map.getObjectLayer("objects")?.objects ?? [];
+        const objects = this.map.getObjectLayer("object")?.objects ?? [];
 
         let player!: Player;
         const enemies: EnemySprite[] = [];
