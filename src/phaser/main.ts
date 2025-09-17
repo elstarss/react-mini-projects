@@ -1,10 +1,11 @@
 import GameScene from "./scenes/GameScene";
 import LoadingScene from "./scenes/StartScene";
+import Scene2 from "./scenes/Scene2";
 import { Preload } from "./scenes/Preload";
 export const gameConfig = {
     type: Phaser.AUTO,
     parent: "phaser-container",
-    width: 500,
+    width: 700,
     height: 500,
     pixelArt: true,
     physics: {
@@ -14,5 +15,5 @@ export const gameConfig = {
     // canvasStyle: `display: block; width: 60%; height: 60%;`,
     roundPixels: true,
     backgroundColor: "#222222",
-    scene: [Preload, LoadingScene, GameScene],
+    scene: [Preload, LoadingScene, GameScene, Scene2],
 };

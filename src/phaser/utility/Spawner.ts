@@ -4,6 +4,9 @@ import { EnemySprite } from "../sprites/EnemySprite";
 
 // example if we were to load spawn points on tiled object layer, we would import them in this kinda way
 
+// use 'name' field in tiled to decide which points
+// extra fields like texture, frame, speed can all be added as custom properties in tiled as an object to then use in the switch case when making the sprites in game
+
 export class Spawner {
     private scene: Phaser.Scene;
     private map: Phaser.Tilemaps.Tilemap;
@@ -13,7 +16,7 @@ export class Spawner {
     }
 
     spawnEntities(): SpawnerResult {
-        const objects = this.map.getObjectLayer("object")?.objects ?? [];
+        const objects = this.map.getObjectLayer("objects")?.objects ?? [];
 
         let player!: Player;
         const enemies: EnemySprite[] = [];
@@ -26,11 +29,11 @@ export class Spawner {
                 case "player":
                     player = new Player(this.scene, x, y);
                     break;
-                case "EnemySpawn":
+                case "enemy":
                     enemies.push(new EnemySprite(this.scene, x, y, "rolly"));
                     break;
-                case "Chip":
-                    chips.push(new DataChip(this.scene, x, y));
+                case "data":
+                    chips.push(new DataChip(this.scene, x, y, "computer"));
                     break;
             }
         }
