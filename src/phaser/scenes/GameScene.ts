@@ -2,11 +2,13 @@ import { EventBus } from "../EventBus";
 import { Player } from "../sprites/Player";
 import { TilemapLoader } from "../utility/TilemapLoader";
 import { CameraController } from "../utility/CameraControl";
+import { EnemySprite } from "../sprites/EnemySprite";
 
 export default class GameScene extends Phaser.Scene {
     score: number = 0;
     scoreText: Phaser.GameObjects.Text | undefined;
     player: Player | undefined;
+    enemy: EnemySprite | undefined;
     constructor() {
         super("GameScene");
     }
@@ -37,13 +39,17 @@ export default class GameScene extends Phaser.Scene {
         this.player = new Player(this, 50, 50);
         this.player.setScale(0.08);
         this.player.getBody().setCollideWorldBounds(true);
-
         this.physics.add.collider(this.player, collisionLayer);
 
+        // enemy
+        this.enemy = new EnemySprite(this, 30, 50, "rolly");
+
+        // camera
         const camControl = new CameraController(this);
         camControl.setup(this.player, map);
     }
     update() {
         this.player?.update();
+        this.enemy?.update();
     }
 }

@@ -43,5 +43,10 @@ export class Preload extends Scene {
             progressBar.fillStyle(0xffffff, 1);
             progressBar.fillRect(250, 280, 300 * value, 30);
         });
+        this.load.spritesheet("rolly", "assets/game/sprite-sheet.png", {
+            frameWidth: 128,
+            frameHeight: 128,
+        });
+        this.load.image("rolly-right", "assets/game/lil-guy-right.png");
     }
 }
