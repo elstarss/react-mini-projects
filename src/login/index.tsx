@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./index.scss";
 
-export default function Phaser() {
+export default function Login() {
     const [isSignUp, setIsSignUp] = useState(false);
     // error messages for sign up
     const [messages, setMessages] = useState<string[]>([]);

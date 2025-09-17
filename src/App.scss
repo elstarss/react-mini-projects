@@ -15,3 +15,9 @@ a:visited {
     color: azure;
 }
 $pretty-teal: rgb(72, 158, 158);
+.phaser-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
