@@ -1,3 +1,5 @@
+// would be helpful to make this more generic and be able to load different maps per different scenes, pass in the layer names and tilemap reference
+
 export class TilemapLoader {
     private scene: Phaser.Scene;
     constructor(scene: Phaser.Scene) {
@@ -19,6 +21,14 @@ export class TilemapLoader {
             tilesPlants,
         ]) as Phaser.Tilemaps.TilemapLayer;
         collisionLayer?.setCollisionByExclusion([-1]);
+
+        // setting world bounds
+        this.scene.physics.world.setBounds(
+            0,
+            0,
+            map.widthInPixels,
+            map.heightInPixels
+        );
 
         return { map, collisionLayer };
     }

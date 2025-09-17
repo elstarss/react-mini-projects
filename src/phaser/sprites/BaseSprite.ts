@@ -34,9 +34,13 @@ export class BaseSprite extends Physics.Arcade.Sprite {
             throw new Error("character body null");
         }
         if (this.body.velocity.x > 0) {
-            this.scaleX = -0.1;
+            this.scaleX = -0.8;
         } else {
-            this.scaleX = 0.1;
+            this.scaleX = 0.8;
         }
     }
+
+    // setInteractive might be a good method to have here
+    // setDrag
+    // setMaxVelocity
 }

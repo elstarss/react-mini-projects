@@ -9,7 +9,7 @@ export const gameConfig = {
     pixelArt: true,
     physics: {
         default: "arcade",
-        arcade: { debug: false },
+        arcade: { debug: true },
     },
     // canvasStyle: `display: block; width: 60%; height: 60%;`,
     roundPixels: true,

@@ -1,9 +1,10 @@
-import { Scene } from "phaser";
 import { DataChip } from "../sprites/DataChip";
 import { Player } from "../sprites/Player";
 import { EnemySprite } from "../sprites/EnemySprite";
 
-export class EntitySpawner {
+// example if we were to load spawn points on tiled object layer, we would import them in this kinda way
+
+export class Spawner {
     private scene: Phaser.Scene;
     private map: Phaser.Tilemaps.Tilemap;
     constructor(scene: Phaser.Scene, map: Phaser.Tilemaps.Tilemap) {
@@ -11,12 +12,8 @@ export class EntitySpawner {
         this.map = map;
     }
 
-    spawnEntities(): {
-        player: Player;
-        enemies: EnemySprite[];
-        chips: DataChip[];
-    } {
-        const objects = this.map.getObjectLayer("Entities")?.objects ?? [];
+    spawnEntities(): SpawnerResult {
+        const objects = this.map.getObjectLayer("object")?.objects ?? [];
 
         let player!: Player;
         const enemies: EnemySprite[] = [];
@@ -26,11 +23,11 @@ export class EntitySpawner {
             const { x = 0, y = 0, name } = obj;
 
             switch (name) {
-                case "PlayerSpawn":
+                case "player":
                     player = new Player(this.scene, x, y);
                     break;
                 case "EnemySpawn":
-                    enemies.push(new EnemySprite(this.scene, x, y));
+                    enemies.push(new EnemySprite(this.scene, x, y, "rolly"));
                     break;
                 case "Chip":
                     chips.push(new DataChip(this.scene, x, y));
@@ -41,3 +38,8 @@ export class EntitySpawner {
         return { player, enemies, chips };
     }
 }
+type SpawnerResult = {
+    player: Player;
+    enemies: EnemySprite[];
+    chips: DataChip[];
+};

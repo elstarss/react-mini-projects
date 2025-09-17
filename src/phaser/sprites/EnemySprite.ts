@@ -1,6 +1,7 @@
 import { BaseSprite } from "./BaseSprite";
 
 // would not hardcode the textures in in the real game
+// probably want to set a name for the animation of each enemy type in the constructor instead of having roll
 export class EnemySprite extends BaseSprite {
     constructor(
         scene: Phaser.Scene,
@@ -11,7 +12,7 @@ export class EnemySprite extends BaseSprite {
     ) {
         super(scene, x, y, texture);
 
-        this.getBody().setSize(30, 40);
+        this.getBody().setSize(30, 60);
         this.setVelocity(
             Phaser.Math.Between(-60, 60),
             Phaser.Math.Between(-60, 60)

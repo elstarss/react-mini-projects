@@ -14,6 +14,12 @@ export class Preload extends Scene {
         this.load.image("girl", "assets/game/girl.png");
         this.load.image("girl-stand", "assets/game/girl-stand.png");
 
+        this.load.spritesheet(
+            "player-sheet",
+            "assets/game/player-spritesheet.png",
+            { frameHeight: 128, frameWidth: 128 }
+        );
+
         this.load.tilemapTiledJSON(
             "tilemap",
             "assets/game/tiles/tilemapJson.tmj"
